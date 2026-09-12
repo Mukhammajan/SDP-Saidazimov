@@ -1,0 +1,30 @@
+# Car Builder
+This project is a simple implementation of the **Builder Design Pattern** in Java 17.
+
+The main product is a `Car`. I used the Builder Pattern because a car has many different properties and optional features. The car can be created step by step using method chaining.
+
+The project contains two builders: `SportsCarBuilder` and `SUVCarBuilder`. Sports cars have 2 seats, 2 doors and require at least 250 hp. SUVs have 5 seats, 4 doors and all-wheel drive by default.
+
+CarDirector contains several ready-to-use car configurations, while `Main` demonstrates how the builders work and also allows the user to create a car through the console.
+
+  Project Structure
+Caк — Product
+CarBuilder — Builder interface
+AbstractCarBuilder— common builder logic
+SportsCarBuilder — builds sports cars
+SUVCarBuilder — builds SUVs
+CarDirector — provides predefined car configurations
+Main — client and demo
+How to Run
+Make sure Java 17 is installed.
+bash
+javac -d out src/main/java/carbuilder/*.java
+java -cp out carbuilder.Main
+Example
+Car car = new SUVCarBuilder()
+        .setBrand("Toyota")
+        .setModel("Land Cruiser")
+        .setEngine("V6 Diesel", 280)
+        .addOffRoadPackage()
+        .build();
+The project demonstrates step-by-step construction, method chaining, validation, and different types of cars using the Builder Pattern.
